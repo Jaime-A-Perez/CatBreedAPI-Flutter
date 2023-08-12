@@ -5,7 +5,7 @@ class Cat {
   final String intelligence;
   final String lifeSpan;
   final String adaptability;
-  final String referenceImageId;
+  final String urlImage;
   final String id;
 
   Cat({
@@ -15,7 +15,7 @@ class Cat {
       required this.description,
       required this.lifeSpan,
       required this.adaptability,
-      required this.referenceImageId,
+      required this.urlImage,
       required this.id
       });
 }
