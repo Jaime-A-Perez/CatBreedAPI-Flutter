@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (BuildContext context) => CatBloc()..add(InitCatBloc()),
-        lazy: true,
+        lazy: false,
         )
       ],
       child: MaterialApp(
