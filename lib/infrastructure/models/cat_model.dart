@@ -1,9 +1,8 @@
 
 import 'dart:convert';
+List<CatModel> catFromJson(String str) => List<CatModel>.from(json.decode(str).map((x) => CatModel.fromJson(x)));
 
-CatModel catFromJson(String str) => CatModel.fromJson(json.decode(str));
-
-String catToJson(CatModel data) => json.encode(data.toJson());
+String catToJson(List<CatModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class CatModel {
     final Weight? weight;
