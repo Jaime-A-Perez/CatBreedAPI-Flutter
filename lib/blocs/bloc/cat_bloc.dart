@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:test_pragma/domine/entities/cat.dart';
@@ -7,7 +9,7 @@ part 'cat_event.dart';
 part 'cat_state.dart';
 
 class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
-
+  Timer? _isTypping;
   int catLimit = 7;
   bool isLoading = false;
   
@@ -19,8 +21,11 @@ class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
     
     on<SearchEvent>((event, emit) async{      
       if (isAlmostFourCharacters(event.queryParameters)){
-        final Cat? cats = await CatDataSourceImp().searchCat(event.queryParameters);
-      emit(state.copywith(searchResult: cats));     
+        if (_isTypping?.isActive ?? false) return;
+        final Cat? cats = await CatDataSourceImp().searchCat(event.queryParameters.toLowerCase());
+        emit(state.copywith(searchResult: cats));     
+        _isTypping = Timer(const Duration(milliseconds: 700), () {
+    });
       }else {
         emit(state.copywith(searchResult: null));     
       }
