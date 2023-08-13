@@ -5,7 +5,7 @@ import 'package:test_pragma/view/widgets/custom_scrollbar.dart';
 import 'package:test_pragma/view/widgets/image_sliver_pinned.dart';
 import 'package:test_pragma/view/widgets/star_level.dart';
 
-
+// Detail screen displaying cat information.
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, required this.cat});
   final Cat? cat;
@@ -31,7 +31,7 @@ class DetailScreen extends StatelessWidget {
   }
   
 }
-
+// Widget to display cat information in DetailsScreeens
 class _CatInformation extends StatelessWidget {
   const _CatInformation({required this.cat});
   final Cat cat;
@@ -64,7 +64,7 @@ class _CatInformation extends StatelessWidget {
     );
   }
 }
-
+// Custom list title and data
 class ListTitleCustom extends StatelessWidget {
   const ListTitleCustom({super.key, required this.title, required this.data,});
 final String title ;

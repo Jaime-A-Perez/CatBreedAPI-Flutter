@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_pragma/utils/utils.dart';
 import 'package:test_pragma/view/widgets/star_level.dart';
-
+// Custom Card widget for displaying cat breed information
 class CardCustom extends StatelessWidget {
   final String breed;
   final String countryOfOrigin;

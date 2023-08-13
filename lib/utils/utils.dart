@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+// Responsive view method
 double screenSize(context, {required TypeSize typeSize, required double size}) {
   final screenSize = MediaQuery.of(context).size;
   final double sHeight = (screenSize.width >

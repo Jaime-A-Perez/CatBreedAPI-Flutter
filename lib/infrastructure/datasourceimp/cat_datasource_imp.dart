@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:test_pragma/infrastructure/models/search_model.dart';
 
 class CatDataSourceImp extends CatDataSource {
-
+//  Fetch cat data based on query parameters
   Future<List<CatModel>> _response(Map<String,String> queryParameters, ) async{
     final Uri uri = Uri(
         scheme: 'https',
@@ -27,7 +27,7 @@ class CatDataSourceImp extends CatDataSource {
     return catModel; 
   }
   
-
+//  Fetch cat search data based on query parameters
    Future<List<Breed>> _responseSearch(Map<String,String> queryParameters, ) async{
     final Uri uri = Uri(
         scheme: 'https',

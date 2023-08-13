@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+// Custom AppBar for displaying a title
 class AppBarCat extends StatelessWidget with PreferredSizeWidget {
   const AppBarCat({super.key, required this.title});
   final String title;

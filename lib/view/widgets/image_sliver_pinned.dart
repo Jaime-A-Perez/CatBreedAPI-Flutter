@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_pragma/utils/utils.dart';
-
+// Sliver app bar widget with a pinned image
 class ImageSliverPinned extends StatelessWidget {
   const ImageSliverPinned({
     Key? key, 
@@ -11,7 +11,7 @@ class ImageSliverPinned extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = screenSize(context, typeSize: TypeSize.width, size: 1);
     final height = screenSize(context, typeSize: TypeSize.height, size: 1);
-
+// Build and return the SliverAppBar with a pinned image
     return SliverAppBar(
       automaticallyImplyLeading: false,
       backgroundColor: Colors.black,

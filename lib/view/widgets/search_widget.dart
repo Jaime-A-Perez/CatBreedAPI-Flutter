@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+// Search widget for entering and displaying search queries
 class SearchWidget extends StatelessWidget {
   const SearchWidget({super.key, this.onChanged});
   final String textHelper = "Write at least 4 characters";

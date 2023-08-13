@@ -1,6 +1,6 @@
 import 'package:test_pragma/domine/entities/cat.dart';
 import 'package:test_pragma/infrastructure/models/cat_model.dart';
-
+// Mapper class for converting CatModel to Cat entity
 class MapperCat{
   static Cat catModelToCatEntity(CatModel catModel){
     return Cat(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+// Widget for displaying a star rating level
 class StartLevel extends StatelessWidget {
   final int stars;
 

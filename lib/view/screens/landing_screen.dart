@@ -6,6 +6,7 @@ import 'package:test_pragma/view/widgets/appBar_widget.dart';
 import 'package:test_pragma/view/widgets/card_widget.dart';
 import 'package:test_pragma/view/widgets/search_widget.dart';
 
+// Landing screen widget managing cat breed display
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
 
@@ -20,7 +21,7 @@ class _LandingScreenState extends State<LandingScreen> {
     loadNewData();
     super.initState();
   }
-
+ // Function to load new data as the user scrolls
   void loadNewData(){
     scrollController.addListener(() {
         if (scrollController.position.pixels + 300 >= 
@@ -78,8 +79,7 @@ class _LandingScreenState extends State<LandingScreen> {
                               image: state.searchResult!.urlImage,
                               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                                  return DetailScreen(cat: state.searchResult); 
-                              }))));
-                              }
+                              }))));}
                       ),)
                     : Expanded(
                       child: ListView.builder(
