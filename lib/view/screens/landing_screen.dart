@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pragma/blocs/bloc/cat_bloc.dart';
+import 'package:test_pragma/view/screens/detail_screen.dart';
 import 'package:test_pragma/view/widgets/card_widget.dart';
 
 class LandingScreen extends StatefulWidget {
@@ -46,11 +47,17 @@ class _LandingScreenState extends State<LandingScreen> {
                         controller: scrollController,
                         itemCount: state.catList!.length,
                         itemBuilder: (context, int i) {
-                          return CardCustom(
-                            breed: '${(state.catList?[i].breed) }', 
-                            countryOfOrigin: '${state.catList?[i].origin}', 
-                            intelligence: '${state.catList?[i].intelligence}', 
-                            image: '${state.catList?[i].urlImage}',   
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                            child: CardCustom(
+                              breed: '${(state.catList?[i].breed) }', 
+                              countryOfOrigin: '${state.catList?[i].origin}', 
+                              intelligence: '${state.catList?[i].intelligence}', 
+                              image: '${state.catList?[i].urlImage}',
+                              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                                 return DetailScreen(cat: state.catList![i]); 
+                              } )),   
+                            ),
                           );
                         }
                       ),
