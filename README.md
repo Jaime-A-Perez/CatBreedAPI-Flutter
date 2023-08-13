@@ -6,7 +6,6 @@ A new Flutter project.
 
 A Flutter mobile app that allows users to browse and search for different breeds of cats using TheCatAPI.
 
-![application screenshot](path/to/image/screenshot.png)
 
 ## 🌟 Features
 
@@ -20,8 +19,6 @@ A Flutter mobile app that allows users to browse and search for different breeds
 # CatBreed API - Flutter App
 
 Una aplicación móvil Flutter que permite a los usuarios explorar y buscar diferentes razas de gatos utilizando la API de TheCatAPI.
-
-![screenshot de la aplicación](ruta/a/imagen/screenshot.png)
 
 ## 🌟 Características
 
