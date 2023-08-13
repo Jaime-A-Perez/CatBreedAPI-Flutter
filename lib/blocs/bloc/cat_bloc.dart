@@ -16,6 +16,15 @@ class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
       final List<Cat> cats = await CatDataSourceImp().getCats(catLimit);
       emit(state.copywith(catList: cats));      
     });
+    
+    on<SearchEvent>((event, emit) async{      
+      if (isAlmostFourCharacters(event.queryParameters)){
+        final Cat? cats = await CatDataSourceImp().searchCat(event.queryParameters);
+      emit(state.copywith(searchResult: cats));     
+      }else {
+        emit(state.copywith(searchResult: null));     
+      }
+    });
 
     on<AddNewItems>((event, emit) async{
       if (isLoading) return;
@@ -33,4 +42,9 @@ class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
     void counterByTen(){
     catLimit += 5;
   }
-}
+    bool isAlmostFourCharacters(String queryParameters){
+      final bool isAlmostFourCharacter =  queryParameters.length >= 4 ? true : false;
+      return isAlmostFourCharacter;
+    }
+
+} 

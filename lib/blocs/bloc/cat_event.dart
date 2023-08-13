@@ -9,5 +9,9 @@ class InitCatBloc extends CatBlocEvent {
 }
 class AddNewItems extends CatBlocEvent {
   AddNewItems();
-  
+}
+
+class SearchEvent extends CatBlocEvent {
+  final String queryParameters;
+  SearchEvent(this.queryParameters);  
 }
