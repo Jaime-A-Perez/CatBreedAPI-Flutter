@@ -13,6 +13,7 @@ class ImageSliverPinned extends StatelessWidget {
     final height = screenSize(context, typeSize: TypeSize.height, size: 1);
 
     return SliverAppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.black,
       expandedHeight: height * 0.5,
       pinned: true,
