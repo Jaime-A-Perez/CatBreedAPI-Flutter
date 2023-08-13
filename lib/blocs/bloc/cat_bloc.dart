@@ -7,7 +7,7 @@ import 'package:test_pragma/infrastructure/datasourceimp/cat_datasource_imp.dart
 
 part 'cat_event.dart';
 part 'cat_state.dart';
-
+ 
 class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
   Timer? _isTypping;
   int catLimit = 7;

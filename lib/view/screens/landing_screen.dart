@@ -31,14 +31,20 @@ class _LandingScreenState extends State<LandingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-     
+     final theme = Theme.of(context);
      final bloc = context.read<CatBloc>();
     return BlocBuilder<CatBloc, CatBlocState>(
       builder: (context, state) {
-        if (state.catList == null) {
-          return const Center(          
-          child: Text("no data"),
-        );
+        if (state.catList != null) {
+          return  Scaffold(
+            body: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset("assets/splash/catbreeds.png"),
+                Text("Check your network connection", style: theme.textTheme.displayMedium, textAlign: TextAlign.center,),
+                    ]
+            ),
+          );
         }else {
           return Scaffold(
             backgroundColor: Colors.blueGrey[100],
