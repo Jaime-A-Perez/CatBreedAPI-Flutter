@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_pragma/utils/utils.dart';
+import 'package:test_pragma/view/widgets/star_level.dart';
 
 class CardCustom extends StatelessWidget {
   final String breed;
@@ -75,10 +76,11 @@ class CardCustom extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("intelligence: $intelligence",
+                      Text("intelligence:",
                           style: theme.textTheme.bodyLarge),
+                          StartLevel(stars: int.parse(intelligence))
                     ],
                   ),
                 ),
