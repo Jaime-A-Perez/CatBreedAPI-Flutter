@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_pragma/domine/entities/cat.dart';
 import 'package:test_pragma/view/widgets/appBar_widget.dart';
+import 'package:test_pragma/view/widgets/custom_scrollbar.dart';
 import 'package:test_pragma/view/widgets/image_sliver_pinned.dart';
 import 'package:test_pragma/view/widgets/star_level.dart';
 
@@ -14,14 +15,16 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBarCat(title: cat!.breed),
       body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            ImageSliverPinned(urlImage: cat!.urlImage,),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                  (context, index) => _CatInformation(cat: cat!),
-                  childCount: 1))            
-          ],
+        child: CustomScrollbar(
+          child: CustomScrollView(
+            slivers: [
+              ImageSliverPinned(urlImage: cat!.urlImage,),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (context, index) => _CatInformation(cat: cat!),
+                    childCount: 1))            
+            ],
+          ),
         ),
       ),
     );
