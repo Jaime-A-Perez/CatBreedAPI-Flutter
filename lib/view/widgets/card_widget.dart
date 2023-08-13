@@ -58,13 +58,18 @@ class CardCustom extends StatelessWidget {
                       bottomRight: Radius.circular(15)),
                   child: SizedBox(
                     height: height * 0.3,
-                    child: Image(
+                    child: Image.network( 
+                      image ,
+                      fit: BoxFit.fitWidth,
+                      width: width,
+                      errorBuilder: (BuildContext context, Object object, StackTrace? stackTrace){
+                        return Image.asset("assets/images/notFoundCat.jpg",
                         width: width,
                         fit: BoxFit.fitWidth,
-                        image: NetworkImage(
-                          image,
-                        )),
+                        );
+                      }           
                   ),
+                ),
                 ),
                 SizedBox(height: height * 0.02),
                 Padding(
