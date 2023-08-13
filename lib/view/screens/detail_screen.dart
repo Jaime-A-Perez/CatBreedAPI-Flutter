@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_pragma/domine/entities/cat.dart';
+import 'package:test_pragma/view/widgets/appBar_widget.dart';
 import 'package:test_pragma/view/widgets/image_sliver_pinned.dart';
 
 
@@ -11,10 +12,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(cat!.breed, style: theme.textTheme.displaySmall?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),),
-        backgroundColor: theme.primaryColor,
-      centerTitle: true),
+      appBar: AppBarCat(title: cat!.breed),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [

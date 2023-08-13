@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pragma/blocs/bloc/cat_bloc.dart';
 import 'package:test_pragma/view/screens/detail_screen.dart';
+import 'package:test_pragma/view/widgets/appBar_widget.dart';
 import 'package:test_pragma/view/widgets/card_widget.dart';
 
 class LandingScreen extends StatefulWidget {
@@ -37,6 +38,7 @@ class _LandingScreenState extends State<LandingScreen> {
         );
         }else {
           return Scaffold(
+            appBar: AppBarCat(title: "Catbreeds"),
             body: SafeArea (
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
