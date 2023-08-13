@@ -1,5 +1,5 @@
 class Cat {
-  final String name;
+  final String breed;
   final String origin;
   final String description;
   final String intelligence;
@@ -9,7 +9,7 @@ class Cat {
   final String id;
 
   Cat({
-      required this.name,
+      required this.breed,
       required this.origin,
       required this.intelligence,
       required this.description,

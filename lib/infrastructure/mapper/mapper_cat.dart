@@ -4,7 +4,7 @@ import 'package:test_pragma/infrastructure/models/cat_model.dart';
 class MapperCat{
   static Cat catModelToCatEntity(CatModel catModel){
     return Cat(
-    name: catModel.name,
+    breed: catModel.name,
     origin: catModel.origin,
     intelligence: catModel.intelligence.toString(),
     description: catModel.description,
