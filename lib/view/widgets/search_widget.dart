@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key});
+  const SearchWidget({super.key, this.onChanged});
   final textHelper = "Write at least 4 characters";
+  final ValueChanged<String>? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: TextFormField(
-        onChanged: (value) {
-          
-        },
+        onChanged: onChanged,
         style: TextStyle(
           fontSize: MediaQuery.of(context).size.width * 0.045,
           fontWeight: FontWeight.w700,
@@ -46,6 +45,4 @@ class SearchWidget extends StatelessWidget {
       ),
     );
   }
-
-
 }
