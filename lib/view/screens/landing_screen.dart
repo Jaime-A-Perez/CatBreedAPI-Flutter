@@ -35,7 +35,7 @@ class _LandingScreenState extends State<LandingScreen> {
      final bloc = context.read<CatBloc>();
     return BlocBuilder<CatBloc, CatBlocState>(
       builder: (context, state) {
-        if (state.catList != null) {
+        if (state.catList == null) {
           return  Scaffold(
             body: Stack(
               alignment: Alignment.center,
