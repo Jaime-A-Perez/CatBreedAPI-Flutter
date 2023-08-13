@@ -17,18 +17,23 @@ class _LandingScreenState extends State<LandingScreen> {
   final ScrollController scrollController = ScrollController();
   @override
   void initState() {
-    scrollController.addListener(() {
-      if (scrollController.position.pixels + 300 >= 
-      scrollController.position.maxScrollExtent &&
-      scrollController.position.pixels  <= 
-      scrollController.position.maxScrollExtent
-      ){
-       final bloc = context.read<CatBloc>();
-       bloc.add(AddNewItems());
-      };
-     });
+    loadNewData();
     super.initState();
   }
+
+  void loadNewData(){
+    scrollController.addListener(() {
+        if (scrollController.position.pixels + 300 >= 
+        scrollController.position.maxScrollExtent &&
+        scrollController.position.pixels  <= 
+        scrollController.position.maxScrollExtent
+        ){
+         final bloc = context.read<CatBloc>();
+         bloc.add(AddNewItems());
+        }
+       });
+  }
+
   @override
   Widget build(BuildContext context) {
      final theme = Theme.of(context);
@@ -41,14 +46,13 @@ class _LandingScreenState extends State<LandingScreen> {
               alignment: Alignment.center,
               children: [
                 Image.asset("assets/splash/catbreeds.png"),
-                Text("Check your network connection", style: theme.textTheme.displayMedium, textAlign: TextAlign.center,),
-                    ]
-            ),
+                Text("Check your network connection", style: theme.textTheme.displayMedium, textAlign: TextAlign.center
+                )]),
           );
         }else {
           return Scaffold(
-            backgroundColor: Colors.blueGrey[100],
-            appBar: AppBarCat(title: "Catbreeds"),
+            backgroundColor: Colors.blueGrey.shade100,
+            appBar: const AppBarCat(title: "Catbreeds"),
             body: SafeArea (
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -59,9 +63,7 @@ class _LandingScreenState extends State<LandingScreen> {
                       child: SearchWidget(
                         onChanged: (value) {
                           bloc.add(SearchEvent(value));
-                        },
-                        ),
-                    ),
+                        })),
                     state.searchResult != null ? 
                      Expanded(
                       child: ListView.builder(
@@ -76,9 +78,8 @@ class _LandingScreenState extends State<LandingScreen> {
                               image: state.searchResult!.urlImage,
                               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                                  return DetailScreen(cat: state.searchResult); 
-                              } ))),   
-                            ) ;
-                        }
+                              }))));
+                              }
                       ),)
                     : Expanded(
                       child: ListView.builder(

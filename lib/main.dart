@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-          title: 'Cats',
+          title: 'CatsBreeds',
           debugShowCheckedModeBanner: false,
           theme: AppTheme().getTheme(),
           routes: routes,

@@ -46,44 +46,38 @@ class _CatInformation extends StatelessWidget {
         children: [
           Text(cat.description, style: theme.textTheme.bodyLarge,),
           const Divider(),
-          Row(
-            
-            children: [
-            Text("Origin", style: theme.textTheme.titleLarge),
-            const Spacer(),
-            Text(cat.origin, style: theme.textTheme.headlineSmall,),
-            ],
-          ),
+          ListTitleCustom(title: "Origin",data: cat.origin),
           const Divider(),
-          Row(
-           
-            children: [
-            Text("Adaptability", style: theme.textTheme.titleLarge),
-            const Spacer(),
-            Text(cat.adaptability, style: theme.textTheme.headlineSmall,),
-            ],
-          ),
+          ListTitleCustom(title: "Adaptability",data: cat.adaptability),
           const Divider(),
+          ListTitleCustom(title: "Life Span",data: "${cat.lifeSpan} years"),
+          const Divider(),          
           Row(
-           
-            children: [
-            Text("Life Span", style: theme.textTheme.titleLarge),
-            const Spacer(),
-            Text("${cat.lifeSpan} years", style: theme.textTheme.headlineSmall,),
-            ],
-          ),
-          const Divider(),
-          
-          Row(
-                    // mainAxisAlignment: MainAxisAlignment.end,
-                    children: [  
-                      Text("Inteligence", style: theme.textTheme.titleLarge),
-                      const Spacer(),
-                          StartLevel(stars: int.parse(cat. intelligence))                   
+            children: [  
+              Text("Inteligence", style: theme.textTheme.titleLarge),
+              const Spacer(),
+                  StartLevel(stars: int.parse(cat. intelligence))                   
             ],
           ),          
         ],
       ),
     );
+  }
+}
+
+class ListTitleCustom extends StatelessWidget {
+  const ListTitleCustom({super.key, required this.title, required this.data,});
+final String title ;
+  final String data;
+  @override
+  Widget build(BuildContext context) {
+        final theme = Theme.of(context);
+    return Row(           
+            children: [
+            Text(title, style: theme.textTheme.titleLarge),
+            const Spacer(),
+            Text(data, style: theme.textTheme.headlineSmall,),
+            ],
+          );
   }
 }

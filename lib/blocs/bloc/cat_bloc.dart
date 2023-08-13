@@ -14,22 +14,11 @@ class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
   bool isLoading = false;
   
   CatBloc() : super(CatBlocState()) {
+
     on<InitCatBloc>((event, emit) async{      
       final List<Cat> cats = await CatDataSourceImp().getCats(catLimit);
       emit(state.copywith(catList: cats));      
-    });
-    
-    on<SearchEvent>((event, emit) async{      
-      if (isAlmostFourCharacters(event.queryParameters)){
-        if (_isTypping?.isActive ?? false) return;
-        final Cat? cats = await CatDataSourceImp().searchCat(event.queryParameters.toLowerCase());
-        emit(state.copywith(searchResult: cats));     
-        _isTypping = Timer(const Duration(milliseconds: 700), () {
-    });
-      }else {
-        emit(state.copywith(searchResult: null));     
-      }
-    });
+    }); 
 
     on<AddNewItems>((event, emit) async{
       if (isLoading) return;
@@ -41,6 +30,18 @@ class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
       emit(state.copywith(catList: cats));     
       await Future.delayed(const Duration(milliseconds: 200));
       isLoading = false;
+    });
+
+    on<SearchEvent>((event, emit) async{      
+      if (isAlmostFourCharacters(event.queryParameters)){
+        if (_isTypping?.isActive ?? false) return;
+        final Cat? cats = await CatDataSourceImp().searchCat(event.queryParameters.toLowerCase());
+        emit(state.copywith(searchResult: cats));     
+        _isTypping = Timer(const Duration(milliseconds: 700), () {
+    });
+      }else {
+        emit(state.copywith(searchResult: null));     
+      }
     });
   }
   

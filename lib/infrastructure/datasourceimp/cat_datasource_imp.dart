@@ -10,7 +10,6 @@ import 'package:test_pragma/infrastructure/models/search_model.dart';
 
 class CatDataSourceImp extends CatDataSource {
 
-
   Future<List<CatModel>> _response(Map<String,String> queryParameters, ) async{
     final Uri uri = Uri(
         scheme: 'https',
@@ -28,15 +27,8 @@ class CatDataSourceImp extends CatDataSource {
     return catModel; 
   }
   
-  @override
-  Future<List<Cat>> getCats(int catLimit) async{
-    final resultModel = await _response({'limit': "$catLimit"});
-    final List<Cat> cats = resultModel.map((CatModel catModel) => MapperCat.catModelToCatEntity(catModel)).toList();
-        // throw UnimplementedError();
-    return cats;
-  }
 
-  Future<List<Breed>> _responseSearch(Map<String,String> queryParameters, ) async{
+   Future<List<Breed>> _responseSearch(Map<String,String> queryParameters, ) async{
     final Uri uri = Uri(
         scheme: 'https',
         host: 'api.thecatapi.com',
@@ -52,6 +44,15 @@ class CatDataSourceImp extends CatDataSource {
     final List<Breed> breed = breedFromJson(response.body);
     return breed; 
   }
+  
+
+  @override
+  Future<List<Cat>> getCats(int catLimit) async{
+    final resultModel = await _response({'limit': "$catLimit"});
+    final List<Cat> cats = resultModel.map((CatModel catModel) => MapperCat.catModelToCatEntity(catModel)).toList();
+    return cats;
+  } 
+
    @override
   Future<Cat?> searchCat(String breed) async{
     final resultSearch = await _responseSearch({'breed_ids': breed});
