@@ -4,13 +4,27 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+A Flutter mobile app that allows users to browse and search for different breeds of cats using TheCatAPI.
 
-A few resources to get you started if this is your first Flutter project:
+![application screenshot](path/to/image/screenshot.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🌟 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 🔍 View a list of cat breeds with details.
+- 🚀 Real-time search for breeds.
+- 🐱 View images of cats and specific details of each breed.
+
+
+/////////   //////////////
+
+# CatBreed API - Flutter App
+
+Una aplicación móvil Flutter que permite a los usuarios explorar y buscar diferentes razas de gatos utilizando la API de TheCatAPI.
+
+![screenshot de la aplicación](ruta/a/imagen/screenshot.png)
+
+## 🌟 Características
+
+- 🔍 Visualiza una lista de razas de gatos con detalles.
+- 🚀 Búsqueda en tiempo real de razas.
+- 🐱 Visualiza imágenes de gatos y detalles específicos de cada raza.
