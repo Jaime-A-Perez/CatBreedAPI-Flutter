@@ -9,7 +9,8 @@ class AppBarCat extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
   final theme = Theme.of(context);
     return AppBar(
-        title: Text(title!, style: theme.textTheme.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),),
+      iconTheme: const IconThemeData(color: Colors.white),
+        title: Text(title, style: theme.textTheme.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),),
         backgroundColor: theme.primaryColor,
       centerTitle: true);
   }
