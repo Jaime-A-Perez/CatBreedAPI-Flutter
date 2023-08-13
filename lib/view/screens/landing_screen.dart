@@ -4,6 +4,7 @@ import 'package:test_pragma/blocs/bloc/cat_bloc.dart';
 import 'package:test_pragma/view/screens/detail_screen.dart';
 import 'package:test_pragma/view/widgets/appBar_widget.dart';
 import 'package:test_pragma/view/widgets/card_widget.dart';
+import 'package:test_pragma/view/widgets/search_widget.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -30,6 +31,8 @@ class _LandingScreenState extends State<LandingScreen> {
   }
   @override
   Widget build(BuildContext context) {
+     final theme = Theme.of(context);
+     final bloc = context.read<CatBloc>();
     return BlocBuilder<CatBloc, CatBlocState>(
       builder: (context, state) {
         if (state.catList == null) {
@@ -38,13 +41,30 @@ class _LandingScreenState extends State<LandingScreen> {
         );
         }else {
           return Scaffold(
+            backgroundColor: Colors.blueGrey[100],
             appBar: AppBarCat(title: "Catbreeds"),
             body: SafeArea (
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Column(
                   children: [
-                    Expanded(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: SearchWidget(
+                        onChanged: (value) {
+                          bloc.add(SearchEvent(value));
+                        },
+                        ),
+                    ),
+                    state.searchResult != null ? CardCustom(
+                              breed: (state.searchResult!.breed), 
+                              countryOfOrigin: state.searchResult!.origin, 
+                              intelligence: state.searchResult!.intelligence, 
+                              image: state.searchResult!.urlImage,
+                              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                                 return DetailScreen(cat: state.searchResult); 
+                              } )),   
+                            ) : Expanded(
                       child: ListView.builder(
                         controller: scrollController,
                         itemCount: state.catList!.length,

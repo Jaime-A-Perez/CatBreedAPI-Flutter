@@ -9,8 +9,7 @@ class DetailScreen extends StatelessWidget {
   final Cat? cat;
 
   @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+  Widget build(BuildContext context) {   
     return Scaffold(
       appBar: AppBarCat(title: cat!.breed),
       body: SafeArea(
