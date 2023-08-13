@@ -5,4 +5,9 @@ abstract class CatBlocEvent {}
 
 class InitCatBloc extends CatBlocEvent {
   InitCatBloc();
+  
+}
+class AddNewItems extends CatBlocEvent {
+  AddNewItems();
+  
 }
