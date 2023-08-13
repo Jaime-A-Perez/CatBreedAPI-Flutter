@@ -21,7 +21,7 @@ class SearchWidget extends StatelessWidget {
           suffix: Icon(Icons.search),
           errorText: textHelper.length < 4 ? textHelper : null,
           filled: true,
-          hintText: "Mayor a 4",
+          hintText: "at least 4 characters",
           fillColor: Colors.white70,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(28.0),

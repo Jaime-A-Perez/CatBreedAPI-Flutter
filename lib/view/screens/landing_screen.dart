@@ -31,7 +31,7 @@ class _LandingScreenState extends State<LandingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-     final theme = Theme.of(context);
+     
      final bloc = context.read<CatBloc>();
     return BlocBuilder<CatBloc, CatBlocState>(
       builder: (context, state) {
@@ -56,15 +56,25 @@ class _LandingScreenState extends State<LandingScreen> {
                         },
                         ),
                     ),
-                    state.searchResult != null ? CardCustom(
+                    state.searchResult != null ? 
+                     Expanded(
+                      child: ListView.builder(
+                        itemCount: [state.searchResult].length,
+                        itemBuilder: (context, int i) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                            child:CardCustom(
                               breed: (state.searchResult!.breed), 
                               countryOfOrigin: state.searchResult!.origin, 
                               intelligence: state.searchResult!.intelligence, 
                               image: state.searchResult!.urlImage,
                               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                                  return DetailScreen(cat: state.searchResult); 
-                              } )),   
-                            ) : Expanded(
+                              } ))),   
+                            ) ;
+                        }
+                      ),)
+                    : Expanded(
                       child: ListView.builder(
                         controller: scrollController,
                         itemCount: state.catList!.length,
