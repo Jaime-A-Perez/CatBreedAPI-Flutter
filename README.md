@@ -16,7 +16,7 @@ A Flutter mobile app that allows users to browse and search for different breeds
 2. Clone and run this beauty:
    ```bash
    # Clone this repository
-   git clone https://github.com/yourusername/CatBreedAPI-Flutter.git
+   git clone https://github.com/Jaime-A-Perez/CatBreedAPI-Flutter
    
    # Move to the repository
    cd CatBreedAPI-Flutter
