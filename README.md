@@ -35,9 +35,9 @@ Hey, open-source lover! If you'd like to make this app even better, just fork it
 > 4. Push to the Branch (git push origin feature/AmazingFeature)
 > 5. Open a Pull Request
 
-## 📜 License
+## 📜 [License](https://github.com/Jaime-A-Perez/CatBreedAPI-Flutter/blob/main/LICENSE)
 
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/Jaime-A-Perez/CatBreedAPI-Flutter/blob/main/LICENSE) for more information.
 
 ## ❤️ Spread The Love 
 
